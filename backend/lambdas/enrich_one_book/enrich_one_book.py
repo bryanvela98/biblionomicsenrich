@@ -1,4 +1,5 @@
 import boto3
+import uuid
 import os
 import re
 from datetime import datetime
@@ -590,6 +591,7 @@ def lambda_handler(event, context):
 
     # ── 16. Assemble flat record ──────────────────────────────────────────────
     record = {
+        "id":                    str(uuid.uuid4()),
         "title":                 title,
         "primary_author":        primary_author,
         "isbn_13":               isbn,

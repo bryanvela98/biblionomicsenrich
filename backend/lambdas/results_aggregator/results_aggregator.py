@@ -26,9 +26,10 @@ def clean_csv_value(value):
 # Define the correct field order (from enrich_one_book config.py)
 CSV_FIELD_ORDER = [
     # Section A: Source Data (1-35)
-    "isbn_13",
+    "id",
     "title",
     "primary_author",
+    "isbn_13",
     "book_format",
     "cdn_creator",
     "short_description",

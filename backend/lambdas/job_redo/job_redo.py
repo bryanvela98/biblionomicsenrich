@@ -60,7 +60,7 @@ def lambda_handler(event, context):
     # Reset DynamoDB record
     table.update_item(
         Key={"requestId": request_id},
-        UpdateExpression="SET #s = :s, processedIsbns = :z, updatedAt = :t, outputS3Key = :n",
+        UpdateExpression="SET #s = :s, processedIsbns = :z, updatedAt = :t, outputS3Key = :n, outputPresignedUrl = :n, outputPresignedUrlExpiry = :n, inputPresignedUrl = :n, inputPresignedUrlExpiry = :n",
         ExpressionAttributeNames={"#s": "status"},
         ExpressionAttributeValues={
             ":s": "processing",
