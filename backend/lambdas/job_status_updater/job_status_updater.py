@@ -20,15 +20,16 @@ def lambda_handler(event, context):
     aggregation_result = event.get('aggregationResult', {})
     job_id = aggregation_result.get('jobId') or event.get('jobId')
     output_key = aggregation_result.get('outputKey')
-    
+    status = event.get('status', 'completed')
+
     if not job_id:
         raise ValueError("Missing jobId")
-    
+
     # Prepare update expression
     update_expression = "SET #status = :status, updatedAt = :updatedAt"
     expression_attribute_names = {'#status': 'status'}
     expression_attribute_values = {
-        ':status': 'completed',  # Use lowercase to match frontend expectations
+        ':status': status,
         ':updatedAt': datetime.utcnow().isoformat()
     }
     

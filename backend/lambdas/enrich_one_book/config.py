@@ -350,10 +350,9 @@ AWARD_PATTERNS = [
 
 CSV_FIELD_NAMES = [
     # Section A: Source Data (1-35)
-    "id",
+    "isbn_13",
     "title",
     "primary_author",
-    "isbn_13",
     "book_format",
     "cdn_creator",
     "short_description",
@@ -433,6 +432,6 @@ CSV_FIELD_NAMES = [
     "extracted_extras",
 ]
 
-assert len(CSV_FIELD_NAMES) == 75, (
-    f"Expected 75 fields, got {len(CSV_FIELD_NAMES)}"
+assert len(CSV_FIELD_NAMES) == 74, (
+    f"Expected 74 fields, got {len(CSV_FIELD_NAMES)}"
 )
